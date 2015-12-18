@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var boxes = [];
 
-
   function changeGreen(e) {
     if (e.target !== e.currentTarget) {
       var box = e.target;
@@ -40,30 +39,4 @@ document.addEventListener('DOMContentLoaded', function() {
       boxes = [];
     }, 0)
   }
-
 });
-
-
-
-
-
-// function moveLeft(elem, distance) {
-//   var left = 0;
-//   var move = setInterval(function() {
-//     if (left >= distance) {
-//       clearInterval(move);
-//     }
-//     left+=10;
-//     elem.style.left = left + 'px';
-//   }, 10)
-// }
-
-
-
-
-
-
-
-
-
-
