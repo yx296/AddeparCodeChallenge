@@ -1,0 +1,36 @@
+div {
+  box-sizing: border-box;
+}
+
+.container {
+  font-size: 0;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border: 1px solid blue;
+  position: relative;
+}
+
+.boxHolder {
+  border: 1px solid black;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin: 2px;
+}
+
+.topRow {
+  display: inline-block;
+}
+
+.bottomRow {
+  display: inline-block;
+}
