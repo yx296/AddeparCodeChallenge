@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         box.style.backgroundColor = 'red';
       }, index * 500)
     });
+    // need to reset boxes to empty after all turn back to red, otherwise the reverseTurnRed
+    // setTimeout will still be running on some boxes as you're clicking to changeGreen
     setTimeout(function() {
       boxes = [];
     }, 0)
