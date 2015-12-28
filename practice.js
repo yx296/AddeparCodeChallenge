@@ -3,24 +3,30 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   var boxHolder = document.querySelector(".boxHolder");
-  var count = 0;
+  var boxesNodeList = document.querySelectorAll(".box");
+  var isUnwinding = false;
   
   boxHolder.addEventListener('click', changeGreen);
 
   var boxes = [];
 
-  function changeGreen(e) {
+  function changeGreen(e) { 
+    if (isUnwinding) {
+      return;
+    } 
+
     if (e.target !== e.currentTarget) {
       var box = e.target;
-      if (box.style.backgroundColor !== 'green') { 
-        box.style.backgroundColor = 'green';
-        count++;
+
+      if (!box.classList.contains('green')) { 
+        box.classList.remove('red');
+        box.classList.add('green');
         boxes.push(e.target);
       }
     }
 
-    if (count === 7) {
-      count = 0;
+    if (boxes.length === boxesNodeList.length) { 
+      isUnwinding = true;
       setTimeout(function() {
         reverseTurnRed();
       }, 1000);
@@ -32,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
     boxes.reverse();
     boxes.forEach(function(box, index) {
       setTimeout(function() {
-        box.style.backgroundColor = 'red';
+        box.classList.remove('green');
+        box.classList.add('red');
+        if (index === boxes.length - 1) {
+          boxes = [];
+          isUnwinding = false;
+        }
       }, index * 500)
     });
-    // need to reset boxes to empty after all turn back to red, otherwise the reverseTurnRed
-    // setTimeout will still be running on some boxes as you're clicking to changeGreen
-    setTimeout(function() {
-      boxes = [];
-    }, 0)
   }
 });

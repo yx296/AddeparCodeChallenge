@@ -27,6 +27,14 @@ div {
   margin: 2px;
 }
 
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+
+
 .topRow {
   display: inline-block;
 }
