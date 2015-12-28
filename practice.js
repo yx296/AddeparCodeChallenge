@@ -29,22 +29,21 @@ document.addEventListener('DOMContentLoaded', function() {
       isUnwinding = true;
       setTimeout(function() {
         reverseTurnRed();
-      }, 1000);
+      }, 500);
     }
     e.stopPropagation();
   }
 
   function reverseTurnRed() {
-    boxes.reverse();
-    boxes.forEach(function(box, index) {
-      setTimeout(function() {
-        box.classList.remove('green');
-        box.classList.add('red');
-        if (index === boxes.length - 1) {
-          boxes = [];
-          isUnwinding = false;
-        }
-      }, index * 500)
-    });
+    var timer = setInterval(function() {
+      var box = boxes.pop();
+      box.classList.remove('green');
+      box.classList.add('red');
+      if (!boxes.length) {
+        clearInterval(timer);
+        isUnwinding = false;
+      }
+
+    }, 300)
   }
 });
