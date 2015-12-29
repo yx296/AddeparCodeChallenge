@@ -26,6 +26,10 @@ div {
   margin: 2px;
 }
 
+.middleRow {
+  clear: both;
+}
+
 .red {
   background-color: red;
 }
@@ -35,9 +39,10 @@ div {
 
 
 .topRow {
-  display: inline-block;
+  float: left;
 }
 
 .bottomRow {
-  display: inline-block;
+  float: left;
 }
+
